@@ -26,18 +26,6 @@
     --radius: 0.5rem;
   }
 
-    /* Define the custom utility for the border */
-  .border-border {
-    border: 1px solid var(--border);
-  }
-
-  .bg-radial-soft {
-    background: radial-gradient(ellipse at center,
-        #f0f4f8 0%,
-        #e2e8f0 50%,
-        #cbd5e1 100%);
-  }
-
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
@@ -59,19 +47,12 @@
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
   }
-}
-
-@layer base {
-  * {
-    @apply border-border;
-  }
 
   html,
   body {
     @apply bg-background text-foreground;
     font-family: system-ui, -apple-system, sans-serif;
     overflow: hidden;
-    /* Remove all scrollbars */
     height: 100%;
     margin: 0;
     padding: 0;
@@ -79,28 +60,25 @@
 
   /* Hide scrollbars for all elements */
   * {
-    scrollbar-width: none;
-    /* Firefox */
-    -ms-overflow-style: none;
-    /* Internet Explorer 10+ */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
   }
 
   *::-webkit-scrollbar {
-    display: none;
-    /* WebKit */
+    display: none; /* WebKit */
   }
 
+  /* Custom utility classes */
   .border-border {
     border: 1px solid var(--border);
   }
 
+  .bg-radial-soft {
+    background: radial-gradient(ellipse at center, #f0f4f8 0%, #e2e8f0 50%, #cbd5e1 100%);
+  }
 }
 
 @layer components {
-  .bg-radial-soft {
-    background: radial-gradient(circle at center, #f0f4f8 0%, #e2e8f0 50%, #cbd5e0 100%);
-  }
-
   .maintenance-heading {
     @apply text-[#31456A] font-bold leading-none mb-8;
     font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
