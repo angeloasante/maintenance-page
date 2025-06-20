@@ -11,7 +11,6 @@ export async function POST(request: NextRequest) {
   try {
     const { email } = await request.json();
 
-    // Validate email
     if (!email || typeof email !== 'string') {
       return NextResponse.json(
         { error: 'Email is required' },
@@ -19,7 +18,6 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Basic email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       return NextResponse.json(
@@ -28,7 +26,6 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Get user info for tracking
     const userAgent = request.headers.get('user-agent') || '';
     const forwardedFor = request.headers.get('x-forwarded-for');
     const ipAddress = forwardedFor?.split(',')[0] || 
@@ -42,13 +39,13 @@ export async function POST(request: NextRequest) {
           email: email.toLowerCase().trim(),
           user_agent: userAgent,
           ip_address: ipAddress,
-          source: 'maintenance_page'
+          source: 'maintenance_page',
+          is_active: true // Real subscribers are active
         }
       ])
       .select();
 
     if (error) {
-      // Handle duplicate email
       if (error.code === '23505') {
         return NextResponse.json(
           { error: 'This email is already subscribed to our updates' },
