@@ -3,8 +3,6 @@ import { Resend } from 'resend';
 import { render } from '@react-email/render';
 import { DiasporaAIWelcomeEmail } from '../components/email-template';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export interface EmailOptions {
   to: string;
   subject: string;
@@ -13,6 +11,18 @@ export interface EmailOptions {
 
 export async function sendWelcomeEmail({ to, subject, userEmail }: EmailOptions) {
   try {
+    // Check if API key is available
+    if (!process.env.RESEND_API_KEY) {
+      console.warn('RESEND_API_KEY not found, skipping email send');
+      return { 
+        success: false, 
+        error: 'Email service not configured - RESEND_API_KEY missing' 
+      };
+    }
+
+    // Create Resend instance only when needed
+    const resend = new Resend(process.env.RESEND_API_KEY);
+    
     // Render the React email component to HTML
     const emailHtml = await render(DiasporaAIWelcomeEmail({ userEmail }));
 

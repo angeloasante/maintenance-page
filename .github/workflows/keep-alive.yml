@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Ping Keep-Alive Endpoint
         run: |
-          curl -X POST https://YOUR_VERCEL_DOMAIN.vercel.app/api/keep-alive \
+          curl -X POST https://diasporaai.dev/api/keep-alive \
             -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
             -H "Content-Type: application/json" \
             -w "HTTP Status: %{http_code}\n" \
