@@ -29,19 +29,19 @@ export const DiasporaAIWelcomeEmail = ({ userEmail }: WelcomeEmailProps) => {
 
           {/* Main Content */}
           <Section style={content}>
-            <Heading style={mainHeading}>🚀 We're Building Something Amazing!</Heading>
+            <Heading style={mainHeading}>🚀 We&apos;re Building Something Amazing!</Heading>
             
             <Text style={paragraph}>
               Thank you for subscribing to updates about <strong>Diaspora AI</strong>! 
-              We're excited to have you on this journey with us.
+              We&apos;re excited to have you on this journey with us.
             </Text>
 
             <Section style={featureBox}>
-              <Heading style={featureTitle}>🤖 What We're Building</Heading>
+              <Heading style={featureTitle}>🤖 What We&apos;re Building</Heading>
               <Text style={featureText}>
                 An AI-powered flight booking platform that revolutionizes travel planning 
                 through natural conversations. Simply tell our AI where you want to go, 
-                and we'll handle the rest with intelligent flight search, real-time pricing, 
+                and we&apos;ll handle the rest with intelligent flight search, real-time pricing, 
                 and seamless booking experiences.
               </Text>
             </Section>
@@ -77,7 +77,7 @@ export const DiasporaAIWelcomeEmail = ({ userEmail }: WelcomeEmailProps) => {
               <Heading style={statusTitle}>🔧 Currently Under Development</Heading>
               <Text style={statusText}>
                 Our team is working around the clock to bring you this revolutionary 
-                travel experience. We're fine-tuning our AI algorithms, integrating 
+                travel experience. We&apos;re fine-tuning our AI algorithms, integrating 
                 with multiple airlines, and ensuring the highest security standards.
               </Text>
             </Section>
@@ -96,7 +96,7 @@ export const DiasporaAIWelcomeEmail = ({ userEmail }: WelcomeEmailProps) => {
             </Section>
 
             <Text style={quoteText}>
-              "Building the future of travel, one conversation at a time."
+              &ldquo;Building the future of travel, one conversation at a time.&rdquo;
             </Text>
           </Section>
 
@@ -109,7 +109,7 @@ export const DiasporaAIWelcomeEmail = ({ userEmail }: WelcomeEmailProps) => {
               📧 info@diasporaai.dev
             </Text>
             <Text style={disclaimerText}>
-              You're receiving this email because you subscribed to updates about Diaspora AI.<br/>
+              You&apos;re receiving this email because you subscribed to updates about Diaspora AI.<br/>
               We respect your privacy and will never share your email address.<br/>
               <br/>
               Subscribed email: <strong>{userEmail}</strong>
