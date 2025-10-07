@@ -1,0 +1,19 @@
+#file: .github/workflows/keep-alive.yml
+name: Keep Supabase Alive
+
+on:
+  schedule:
+    - cron: '0 12 */3 * *' # Every 3 days at noon UTC
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  keep-alive:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Keep-Alive Endpoint
+        run: |
+          curl -X POST https://YOUR_VERCEL_DOMAIN.vercel.app/api/keep-alive \
+            -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
+            -H "Content-Type: application/json" \
+            -w "HTTP Status: %{http_code}\n" \
+            --fail-with-body
