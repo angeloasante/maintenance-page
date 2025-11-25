@@ -3,10 +3,17 @@ import { createClient } from '@supabase/supabase-js';
 import { NextRequest, NextResponse } from 'next/server';
 import { sendWelcomeEmail } from '../../../lib/email-service';
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
+// Function to create Supabase client at runtime
+function getSupabaseClient() {
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  
+  if (!supabaseUrl || !supabaseKey) {
+    throw new Error('Missing Supabase environment variables');
+  }
+  
+  return createClient(supabaseUrl, supabaseKey);
+}
 
 export async function POST(request: NextRequest) {
   try {
@@ -27,6 +34,18 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Initialize Supabase client at runtime
+    let supabase;
+    try {
+      supabase = getSupabaseClient();
+    } catch (supabaseError) {
+      return NextResponse.json({ 
+        error: 'Database not configured',
+        message: 'Service temporarily unavailable',
+        details: supabaseError instanceof Error ? supabaseError.message : 'Unknown error'
+      }, { status: 503 });
+    }
+
     const userAgent = request.headers.get('user-agent') || '';
     const forwardedFor = request.headers.get('x-forwarded-for');
     const ipAddress = forwardedFor?.split(',')[0] || 
@@ -40,7 +59,7 @@ export async function POST(request: NextRequest) {
           email: email.toLowerCase().trim(),
           user_agent: userAgent,
           ip_address: ipAddress,
-          source: 'maintenance_page',
+          source: 'waitlist_page',
           is_active: true // Real subscribers are active
         }
       ])
@@ -49,7 +68,7 @@ export async function POST(request: NextRequest) {
     if (error) {
       if (error.code === '23505') {
         return NextResponse.json(
-          { error: 'This email is already subscribed to our updates' },
+          { error: 'This email is already on our waitlist!' },
           { status: 409 }
         );
       }
@@ -62,7 +81,7 @@ export async function POST(request: NextRequest) {
     try {
       const emailResult = await sendWelcomeEmail({
         to: email.toLowerCase().trim(),
-        subject: '🚀 Welcome to Diaspora AI - Revolutionary Flight Booking Coming Soon!',
+        subject: '🎉 Welcome to the Diaspora AI Waitlist - You\'re In!',
         userEmail: email.toLowerCase().trim(),
       });
 
@@ -79,7 +98,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json(
       {
-        message: 'Successfully subscribed! Check your email for exciting updates about Diaspora AI.',
+        message: 'Welcome to the waitlist! Check your email for exclusive updates and early access info.',
         data
       },
       { status: 201 }
@@ -88,7 +107,7 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error('Subscription error:', error);
     return NextResponse.json(
-      { error: 'Failed to subscribe. Please try again later.' },
+      { error: 'Failed to join waitlist. Please try again later.' },
       { status: 500 }
     );
   }

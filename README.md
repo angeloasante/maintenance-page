@@ -1,4 +1,19 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Diaspora AI Waitlist Page
+
+A modern, responsive waitlist landing page for Diaspora AI - an AI-powered flight booking platform. Built with Next.js 15, Tailwind CSS v4, Framer Motion, and Supabase.
+
+## ✨ Features
+
+- 🎨 Beautiful gradient design with floating animations
+- 📱 Fully responsive (mobile & desktop optimized)
+- ⚡ Real-time email validation and waitlist signup
+- 📧 Automated welcome emails via Resend
+- 🗄️ Supabase database integration
+- 🔐 Admin dashboard for subscriber management
+- 🚀 Vercel deployment ready
+- 🎭 Smooth animations with Framer Motion
+
+## 🚀 Quick Start
 
 ## Getting Started
 

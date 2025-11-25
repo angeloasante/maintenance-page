@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
-export default function MaintenancePage() {
+export default function WaitlistPage() {
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [message, setMessage] = useState("");
@@ -45,7 +45,7 @@ export default function MaintenancePage() {
         throw new Error(data.error || 'Failed to subscribe');
       }
 
-      setMessage("Successfully subscribed! Check your email for exciting updates about Diaspora AI.");
+      setMessage("Welcome to the waitlist! You'll be among the first to know when Diaspora AI launches.");
       setMessageType("success");
       setEmail("");
     } catch (error) {
@@ -205,7 +205,7 @@ export default function MaintenancePage() {
           animate={isMobile ? "animate" : {}}
         >
           
-          {/* Under Maintenance Heading */}
+          {/* Waitlist Heading */}
           <motion.h1
             initial={{ opacity: 0, y: isMobile ? -50 : -30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -226,7 +226,7 @@ export default function MaintenancePage() {
               textShadow: '0 2px 4px rgba(255,255,255,0.5)'
             }}
           >
-            Under Maintenance
+            Coming Soon
           </motion.h1>
 
           {/* Description */}
@@ -250,7 +250,7 @@ export default function MaintenancePage() {
               textShadow: '0 1px 2px rgba(255,255,255,0.5)'
             }}
           >
-            We are currently facing some issues with our system and our team is working hard to resolve it. You can subscribe to our mailing list if you want to get notified
+            Diaspora AI is launching soon! Join our exclusive waitlist to be the first to experience our revolutionary AI platform. Get early access and exclusive updates.
           </motion.p>
 
           {/* Email Form */}
@@ -276,7 +276,7 @@ export default function MaintenancePage() {
           >
             <motion.input
               type="email"
-              placeholder="Email"
+              placeholder="Enter your email address"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -326,7 +326,7 @@ export default function MaintenancePage() {
                 opacity: isSubmitting ? 0.6 : 1
               }}
             >
-              {isSubmitting ? "Subscribing..." : "Subscribe"}
+              {isSubmitting ? "Joining Waitlist..." : "Join Waitlist"}
             </motion.button>
 
             {/* Success/Error Message */}

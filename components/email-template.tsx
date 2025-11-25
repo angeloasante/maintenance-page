@@ -29,11 +29,11 @@ export const DiasporaAIWelcomeEmail = ({ userEmail }: WelcomeEmailProps) => {
 
           {/* Main Content */}
           <Section style={content}>
-            <Heading style={mainHeading}>🚀 We&apos;re Building Something Amazing!</Heading>
+            <Heading style={mainHeading}>🎉 Welcome to the Diaspora AI Waitlist!</Heading>
             
             <Text style={paragraph}>
-              Thank you for subscribing to updates about <strong>Diaspora AI</strong>! 
-              We&apos;re excited to have you on this journey with us.
+              Thank you for joining our exclusive waitlist for <strong>Diaspora AI</strong>! 
+              You&apos;re now among the first to know when we launch our revolutionary platform.
             </Text>
 
             <Section style={featureBox}>
@@ -74,21 +74,21 @@ export const DiasporaAIWelcomeEmail = ({ userEmail }: WelcomeEmailProps) => {
             </Row>
 
             <Section style={statusBox}>
-              <Heading style={statusTitle}>🔧 Currently Under Development</Heading>
+              <Heading style={statusTitle}>🏗️ Coming Soon - You&apos;re on the List!</Heading>
               <Text style={statusText}>
-                Our team is working around the clock to bring you this revolutionary 
+                Our team is putting the finishing touches on this revolutionary 
                 travel experience. We&apos;re fine-tuning our AI algorithms, integrating 
                 with multiple airlines, and ensuring the highest security standards.
               </Text>
             </Section>
 
-            <Heading style={expectTitle}>🎯 What to Expect</Heading>
+            <Heading style={expectTitle}>🎯 Your Waitlist Benefits</Heading>
             <Text style={paragraph}>
-              • <strong>Early Access:</strong> Be among the first to experience AI-powered flight booking<br/>
-              • <strong>Beta Testing:</strong> Help us perfect the platform with your feedback<br/>
-              • <strong>Exclusive Updates:</strong> Regular progress reports and feature previews<br/>
-              • <strong>Launch Notification:</strong> Immediate notification when we go live<br/>
-              • <strong>Special Perks:</strong> Early bird discounts and premium features
+              • <strong>Priority Access:</strong> First in line when we launch publicly<br/>
+              • <strong>Exclusive Beta:</strong> Early access to test and shape the platform<br/>
+              • <strong>VIP Updates:</strong> Behind-the-scenes progress and feature previews<br/>
+              • <strong>Launch Alert:</strong> Immediate notification the moment we go live<br/>
+              • <strong>Founder Perks:</strong> Special discounts and premium features for early supporters
             </Text>
 
             <Section style={launchBox}>
@@ -109,10 +109,10 @@ export const DiasporaAIWelcomeEmail = ({ userEmail }: WelcomeEmailProps) => {
               📧 info@diasporaai.dev
             </Text>
             <Text style={disclaimerText}>
-              You&apos;re receiving this email because you subscribed to updates about Diaspora AI.<br/>
+              You&apos;re receiving this email because you joined the Diaspora AI waitlist.<br/>
               We respect your privacy and will never share your email address.<br/>
               <br/>
-              Subscribed email: <strong>{userEmail}</strong>
+              Waitlist email: <strong>{userEmail}</strong>
             </Text>
           </Section>
         </Container>

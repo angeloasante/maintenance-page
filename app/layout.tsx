@@ -3,8 +3,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Under Maintenance - Diaspora AI",
-  description: "Diaspora AI - Revolutionary AI-powered flight booking platform coming soon. We're building the future of travel through intelligent conversations.",
+  title: "Join the Waitlist - Diaspora AI",
+  description: "Join the Diaspora AI waitlist! Be the first to experience our revolutionary AI-powered flight booking platform. Early access available soon.",
   icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon.ico',
@@ -16,26 +16,27 @@ export const metadata: Metadata = {
     'AI travel',
     'intelligent booking',
     'travel platform',
-    'maintenance',
+    'waitlist',
+    'early access',
     'coming soon'
   ],
   authors: [{ name: 'Diaspora AI Team' }],
   creator: 'Diaspora AI',
   publisher: 'Diaspora AI',
   robots: {
-    index: false,
-    follow: false,
+    index: true,
+    follow: true,
   },
   openGraph: {
-    title: 'Diaspora AI - Revolutionary Flight Booking',
-    description: 'AI-powered flight booking platform coming soon. Experience the future of travel through intelligent conversations.',
+    title: 'Join the Diaspora AI Waitlist - Revolutionary Flight Booking',
+    description: 'Join our exclusive waitlist for early access to the AI-powered flight booking platform. Experience the future of travel through intelligent conversations.',
     type: 'website',
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Diaspora AI - Revolutionary Flight Booking',
-    description: 'AI-powered flight booking platform coming soon. Experience the future of travel through intelligent conversations.',
+    title: 'Join the Diaspora AI Waitlist - Revolutionary Flight Booking',
+    description: 'Join our exclusive waitlist for early access to the AI-powered flight booking platform. Experience the future of travel.',
   },
 };
 
